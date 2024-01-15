@@ -73,7 +73,7 @@ public class ListeTriee{
             boolean mit=false;
             while(!this.finliste(p) && !mit){
                 
-            if (chaine.compareTo(this.liste.val(0))<0){
+            if (chaine.compareTo(this.liste.val(p))<0){
                     mit=true;
                     this.liste.adjlis(x, chaine);
                 }
@@ -93,14 +93,12 @@ public class ListeTriee{
     public void suplisT(String chaine){
 	//A COMPLETER
         int p=this.tete();
-        while(!this.finliste(p) && this.liste.val(p).compareTo(chaine)!=0){
-
-          p=this.suc(p);  
+        boolean present=false;
+        while(!this.finliste(p) && !present && this.liste.val(p)!=null){
+          present=this.liste.val(p).compareTo(chaine)==0;
+          p=this.suc(p);
         }
-        
-        System.out.println(p);
-
-        if(!this.finliste(p))if(this.liste.val(p).compareTo(chaine)==0)this.liste.suplis(p);
+        if(!this.finliste(p))if(present)this.liste.suplis(p);
     }
 		
     public String toString(){

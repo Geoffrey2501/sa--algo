@@ -48,15 +48,171 @@ public class Principale{
     }
 
 
-		
+	
     public static void main(String [] args){
-	System.out.println("Bienvenue !");
+	/*System.out.println("Bienvenue !");
 
 	//Exemple d'utilisation de la classe EcritureFichier
 	EcritureFichier fichier = new EcritureFichier("resultats.csv");
 	fichier.ouvrirFichier();
 	fichier.ecrireLigne("liste;operation;emplacement;duree");
-	fichier.fermerFichier();
+	fichier.fermerFichier();*/
+
+    ListeTriee lCh= new ListeTriee(new ListeChainee(10000));
+    ListeTriee lChP= new ListeTriee(new ListeChaineePlacesLibres(10000));
+    ListeTriee lCo= new ListeTriee(new ListeContigue(10000));
+    LectureFichier lf = new LectureFichier("noms100.txt");
+
+    //remplissage
+    
+	// 		
+	String[] liste_noms = lf.lireFichier();
+    
+    //cas 1
+    long date_debut = System.nanoTime();
+	for (int i = 0; i < 10; i++) {
+	   lCh.adjlisT(liste_noms[i]);
+	}
+    long date_fin = System.nanoTime(); 
+    long duree = date_fin - date_debut;
+
+    //cas 2
+    long date_debut2 = System.nanoTime();
+    for (int i = 0; i < 10; i++) {
+        lChP.adjlisT(liste_noms[i]);
+    }
+    long date_fin2 = System.nanoTime(); 
+    long duree2 = date_fin2 - date_debut2;
+
+
+    //cas 3
+    long date_debut3 = System.nanoTime();
+    for (int i = 0; i < 10; i++) {
+        lCo.adjlisT(liste_noms[i]);
+    }
+    long date_fin3 = System.nanoTime(); 
+    long duree3 = date_fin3 - date_debut3;
+
+
+    System.out.println("cas 1");
+    System.out.println(duree);
+
+    System.out.println("cas 2");
+    System.out.println(duree2);
+
+    System.out.println("cas 3");
+    System.out.println(duree3);
+
+
+
+    //cas 1
+    date_debut = System.nanoTime();
+	for (int i = liste_noms.length-11; i < liste_noms.length; i++) {
+	   lCh.adjlisT(liste_noms[i]);
+	}
+    date_fin = System.nanoTime(); 
+    duree = date_fin - date_debut;
+
+    //cas 2
+    date_debut2 = System.nanoTime();
+    for (int i = liste_noms.length-11; i < liste_noms.length; i++) {
+        lChP.adjlisT(liste_noms[i]);
+    }
+    date_fin2 = System.nanoTime(); 
+    duree2 = date_fin2 - date_debut2;
+
+
+    //cas 3
+     date_debut3 = System.nanoTime();
+    for (int i = liste_noms.length-11; i <liste_noms.length ; i++) {
+        lCo.adjlisT(liste_noms[i]);
+    }
+    date_fin3 = System.nanoTime(); 
+    duree3 = date_fin3 - date_debut3;
+
+    System.out.println("cas 1");
+    System.out.println(duree);
+
+    System.out.println("cas 2");
+    System.out.println(duree2);
+
+    System.out.println("cas 3");
+    System.out.println(duree3);
+
+
+    //cas 1
+    date_debut = System.nanoTime();        
+    for (int i = 0; i < 10; i++) {
+        lCh.suplisT(liste_noms[i]);
+    }
+    date_fin = System.nanoTime(); 
+    duree = date_fin - date_debut;
+    
+        //cas 2
+    date_debut2 = System.nanoTime();
+    for (int i = 0; i < 10; i++) {
+        lChP.suplisT(liste_noms[i]);
+    }
+    date_fin2 = System.nanoTime(); 
+    duree2 = date_fin2 - date_debut2;
+    
+    
+    //cas 3
+    date_debut3 = System.nanoTime();
+    for (int i = 0; i < 10; i++) {
+        lCo.suplisT(liste_noms[i]);
+    }
+    date_fin3 = System.nanoTime(); 
+    duree3 = date_fin3 - date_debut3;
+    
+    
+        System.out.println("cas 1");
+        System.out.println(duree);
+    
+        System.out.println("cas 2");
+        System.out.println(duree2);
+    
+        System.out.println("cas 3");
+        System.out.println(duree3);
+
+
+    //cas 1
+    date_debut = System.nanoTime();        
+    for (int i = liste_noms.length-11; i < liste_noms.length; i++) {
+        lCh.suplisT(liste_noms[i]);
+    }
+    date_fin = System.nanoTime(); 
+    duree = date_fin - date_debut;
+    
+        //cas 2
+    date_debut2 = System.nanoTime();
+    for (int i = liste_noms.length-11; i < liste_noms.length; i++) {
+        lChP.suplisT(liste_noms[i]);
+    }
+    date_fin2 = System.nanoTime(); 
+    duree2 = date_fin2 - date_debut2;
+    
+    
+    //cas 3
+    date_debut3 = System.nanoTime();
+    for (int i = liste_noms.length-11; i < liste_noms.length; i++) {
+        lCo.suplisT(liste_noms[i]);
+    }
+    date_fin3 = System.nanoTime(); 
+    duree3 = date_fin3 - date_debut3;
+    
+    
+        System.out.println("cas 1");
+        System.out.println(duree);
+    
+        System.out.println("cas 2");
+        System.out.println(duree2);
+    
+        System.out.println("cas 3");
+        System.out.println(duree3);
+
+
+        
     }
 
 
