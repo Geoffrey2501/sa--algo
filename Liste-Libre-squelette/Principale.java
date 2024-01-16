@@ -90,11 +90,11 @@ public class Principale{
 	//fichier.ouvrirFichier();
 	//fichier.ecrireLigne("liste;operation;emplacement;duree");
 	
-
+/*
     ListeTriee lCh= new ListeTriee(new ListeChainee(10000));
     ListeTriee lChP= new ListeTriee(new ListeChaineePlacesLibres(10000));
     ListeTriee lCo= new ListeTriee(new ListeContigue(10000));
-
+    
     //remplissage
     System.out.println('1');
     System.out.println(testChrono(1,'a', 'd'));
@@ -113,8 +113,43 @@ public class Principale{
     System.out.println(testChrono(1,'s', 'f'));
     System.out.println(testChrono(2,'s', 'f'));
     System.out.println(testChrono(3,'s', 'f'));
+*/
+    //remplissage (vrai)
+    EcritureFichier fichier = new EcritureFichier("resultats.csv");
+    fichier.ouvrirFichier();
+    for(int i=0; i<4; i++){
+        for(int j=0; j<3; j++){
+            String li="";
+            String operation;
+            String emplacement;
+            char c;
+            char s;
+            switch(i){
+                case 0 : li="contigue";
+                break;
+                case 1 : li="chainee";
+                break;
+                case 2 : li="chaineePlaceLibre";
+                break;
+            }
+            if(i==1 || i==2){
+                operation="ajouter";
+                c='a';
+            }else{
+                operation="supprimer";
+                c='s';
+            }
+            if(i==1 || i==3){
+                emplacement="debut";
+                s='d';
+            }else{
+                emplacement="fin";
+                s='f';
+            }
+            fichier.ecrireLigne(li+";"+operation+";"+emplacement+";"+Integer.toString(testChrono(j, 'c', 's')));;
 
-
+        }
+    }
 
         //fichier.fermerFichier();
     }
