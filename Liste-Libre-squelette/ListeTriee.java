@@ -33,7 +33,7 @@ public class ListeTriee{
      */
     public int suc(int p){
 	//A COMPLETER
-        return p+1;
+        return this.liste.suc(p);
     }
     
     /**
@@ -94,11 +94,14 @@ public class ListeTriee{
 	//A COMPLETER
         int p=this.tete();
         boolean present=false;
-        while(!this.finliste(p) && !present && this.liste.val(p)!=null){
-          present=this.liste.val(p).compareTo(chaine)==0;
-          p=this.suc(p);
+        while(!this.finliste(p) && !present){
+          if(this.liste.val(p).compareTo(chaine)==0){
+            this.liste.suplis(p);
+            present=true;
+          }
+          else p=this.suc(p);
         }
-        if(!this.finliste(p))if(present)this.liste.suplis(p);
+    
     }
 		
     public String toString(){
