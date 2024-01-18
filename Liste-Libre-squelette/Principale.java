@@ -103,7 +103,7 @@ public class Principale{
     EcritureFichier fichier = new EcritureFichier("resultats.csv");
     fichier.ouvrirFichier();
     for(int i=0; i<3; i++){
-        for(int j=0; j<3; j++){
+        for(int j=0; j<4; j++){
             String li="";
             String operation;
             String emplacement;
@@ -117,14 +117,14 @@ public class Principale{
                 case 2 : li="chaineePlaceLibre";
                 break;
             }
-            if(i==1 || i==2){
+            if(j==0 || j==1){
                 operation="ajouter";
                 c='a';
             }else{
                 operation="supprimer";
                 c='s';
             }
-            if(i==1 || i==3){
+            if(j==0 || j==2){
                 emplacement="debut";
                 s='d';
             }else{
